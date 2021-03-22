@@ -1,0 +1,8 @@
+# This is where the enviroment variables will go.  Things like
+# API Keys, Client Ids, Etc
+
+{
+  "username": "my_username",
+  "password": "my_password",
+  "start_date": "2017-01-01T00:00:00Z"
+}
