@@ -21,5 +21,5 @@ def main():
         sync(args.config, args.state, catalog)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
