@@ -2,7 +2,7 @@ import pytest
 import os
 from tap_domo.client import DOMOClient
 from dotenv import load_dotenv
-
+load_dotenv()
 config = {
     "client_id": os.getenv("client_id"),
     "client_secret": os.getenv("client_secret"),
@@ -52,12 +52,12 @@ def test_build_singer_schema():
     target_schema = {
         "type": ["object", "null"],
         "properties": {
-            "index": {"type": "integer"},
-            "unit_of_measure": {"type": "string"},
-            "type": {"type": "string"},
-            "storeid": {"type": "integer"},
-            "source": {"type": "string"},
-            "sold_units": {"type": "number"},
+            "index": {"type": ["integer", "null"]},
+            "unit_of_measure": {"type": ["string", "null"]},
+            "type": {"type": ["string", "null"]},
+            "storeid": {"type": ["integer", "null"]},
+            "source": {"type": ["string", "null"]},
+            "sold_units": {"type": ["number", "null"]},
         },
     }
 
