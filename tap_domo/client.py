@@ -1,37 +1,41 @@
+from pydomo import Domo
 import json
-import requests
-
-# Build the Data Resource Service Here as a class with each endpoint as a function.
-# Do not iterate over paginated endpoints in this file.  Below are just samples
-
-class RESOURCENAMEClient:
-    BASE_URL = BASE_API_URL
-
-    def __init__(self, CLIENT_PARAMETERS):
-        self._client = requests.Session()
 
 
-    def fetch_access_token(self, client_id, api_key):
-        url = f'{self.BASE_URL}/config/api/gettokens'
-        headers = {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        }
-        payload_dict = {
-            'client_id': client_id,
-            'apikey': api_key
-        }
-        return self._client.post(url, headers=headers, data=payload_dict).json()['access_token']
+class DOMOClient:
+    def __init__(self, client_id: str, client_secret: str):
+        self.domo = Domo(client_id, client_secret)
 
-    def fetch_ENDPOINT_1(self):
-        url = f'{self.BASE_URL}/ADDITIONAL_URI_ADDRESS'
-        param_payload = {
-            'active': 'true',
-            'pagesize': NUMBER,  # Max per page count
-            'page': NUMBER  # Page will have to be iterated over in a range
-        }
-        return self._client.get(url, params=param_payload).json()
+    def records_query(
+        self,
+        data_set: str,
+        table_name: str,
+        limit: int,
+        offset: int,
+        replication_key: str = None,
+        bookmark: str = None,
+    ) -> list:
+        if replication_key:
+            sql = f"SELECT * FROM {table_name} WHERE {replication_key} > '{bookmark}' LIMIT {limit} OFFSET {offset}"
+        else:
+            sql = f"SELECT * FROM {table_name} LIMIT {limit} OFFSET {offset}"
+        return self.send_query(data_set=data_set, query_string=sql)
 
-    def fetch_ENDPOINT_2(self):
-        url = f'{self.BASE_URL}/ADDITIONAL_URI_ADDRESS'
-        return self._client.get(url).json()
+    def send_query(self, data_set: str, query_string: str) -> dict:
+        return json.loads(
+            self.domo.ds_query(data_set, query_string).to_json(orient="table")
+        )["data"]
 
+    def get_schema(self, data_set: str, table_name: str) -> dict:
+        sql = f"SELECT * FROM {table_name} LIMIT 1"
+        meta = json.loads(
+            self.domo.ds_query(dataset_id=data_set, query=sql).to_json(orient="table")
+        )
+        return self.build_singer_schema(schema_json=meta["schema"]["fields"])
+
+    def build_singer_schema(self, schema_json: list) -> dict:
+        schema = {"type": ["object", "null"], "properties": {}}
+        for data in schema_json:
+            schema["properties"][data["name"]] = {"type": [data["type"], "null"]}
+
+        return schema
