@@ -4,18 +4,19 @@
 {
   "client_id": "client_id",
   "client_secret": "my_password",
-  "start_date": "2017-01-01T00:00:00Z",
+  "limit": 
   "data_specs": {
-    "table_name": {
-      "object_type": "RECORD",
-      "table_name": "table_name",
-      "data_set": "DATA_SET_ID",
-      "replication_method": "INCREMENTAL",
-      "tap_stream_id": "table_name",
-      "replication_key": ""
-    },
-    "...": {
+      "table_name": {
+          "object_type": "RECORD",
+          "table_name": "table_name",
+          "data_set": "DATA_SET_ID",
+          "replication_method": "INCREMENTAL",
+          "tap_stream_id": "table_name",
+          "replication_key": "",
+          "start_key": "start_key"
+        },
+        "...": {
 
-    }
+        }
   }
 }
