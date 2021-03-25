@@ -4,7 +4,7 @@ from tap_domo.discovery import discover
 from tap_domo.sync import sync
 
 # Fill in any required config keys from the config.json here
-REQUIRED_CONFIG_KEYS = [...]
+REQUIRED_CONFIG_KEYS = ["client_id", "client_secret", "data_specs"]
 
 LOGGER = singer.get_logger()
 
@@ -13,7 +13,7 @@ LOGGER = singer.get_logger()
 def main():
     args = singer.utils.parse_args(REQUIRED_CONFIG_KEYS)
 
-    catalog = args.catalog if args.catalog else discover()
+    catalog = args.catalog if args.catalog else discover(args.config)
 
     if args.discover:
         write_catalog(catalog)
@@ -21,5 +21,5 @@ def main():
         sync(args.config, args.state, catalog)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
