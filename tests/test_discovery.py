@@ -14,7 +14,7 @@ config = {
             "data_set": "ee10a8b4-12cc-4471-92de-16ab97d6fd94",
             "replication_method": "INCREMENTAL",
             "tap_stream_id": "inventory",
-            "replication_key": ""
+            "replication_key": "",
         },
         "customer": {
             "object_type": "CUSTOMER",
@@ -22,8 +22,8 @@ config = {
             "data_set": "2d4d8b8b-b3bc-4570-9493-f3f25cd120fd",
             "replication_method": "INCREMENTAL",
             "tap_stream_id": "customer",
-            "replication_key": "last_updated_at"
-        }
+            "replication_key": "last_updated_at",
+        },
     },
 }
 
@@ -31,6 +31,6 @@ config = {
 def test_get_schema():
     schema, schema_metadata = get_schemas(config)
 
-    assert len(schema) == len(config['data_specs'])
-    assert len(schema_metadata) == len(config['data_specs'])
-    assert schema.keys () == config['data_specs'].keys()
+    assert len(schema) == len(config["data_specs"])
+    assert len(schema_metadata) == len(config["data_specs"])
+    assert schema.keys() == config["data_specs"].keys()
