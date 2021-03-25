@@ -1,41 +1,52 @@
 import json
 import os
-
-from singer import metadata
+from singer import metadata, get_logger
 from singer.catalog import Catalog
-from .streams import STREAMS
+from tap_domo.client import DOMOClient
+
+# from .streams import Stream
+
+LOGGER = get_logger()
 
 
-def get_abs_path(path):
-    return os.path.join(os.path.dirname(os.path.realpath(__file__)), path)
+def get_schemas(config):
 
-
-def get_schemas():
+    client = DOMOClient(
+        client_id=config["client_id"], client_secret=config["client_secret"]
+    )
 
     schemas = {}
     schemas_metadata = {}
 
-    for stream_name, stream_object in STREAMS.items():
-        schema_path = get_abs_path("schemas/{}.json".format(stream_name))
-        with open(schema_path) as file:
-            schema = json.load(file)
+    for table_name, table_specs in config["data_specs"].items():
+        LOGGER.info(f"Building Schema for {table_specs['object_type']}")
+        stream_name = table_specs["tap_stream_id"]
+        schema = client.get_schema(
+            data_set=table_specs["data_set"], table_name=table_specs["table_name"]
+        )
+        schema["properties"].pop("index")
 
         meta = metadata.get_standard_metadata(
             schema=schema,
-            key_properties=stream_object.key_properties,
-            replication_method=stream_object.replication_method,
+            key_properties=table_specs["key_properties"]
+            if "key_properties" in table_specs
+            else [],
+            replication_method=table_specs["replication_method"],
         )
 
         meta = metadata.to_map(meta)
 
-        if stream_object.valid_replication_keys:
-            meta = metadata.write(
-                meta, (), "valid-replication-keys", stream_object.valid_replication_keys
-            )
-        if stream_object.replication_key:
+        if "valid_replication_keys" in table_specs:
             meta = metadata.write(
                 meta,
-                ("properties", stream_object.replication_key),
+                (),
+                "valid-replication-keys",
+                table_specs["valid_replication_keys"],
+            )
+        if "replication_key" in table_specs:
+            meta = metadata.write(
+                meta,
+                ("properties", table_specs["replication_key"]),
                 "inclusion",
                 "automatic",
             )
@@ -48,8 +59,8 @@ def get_schemas():
     return schemas, schemas_metadata
 
 
-def discover():
-    schemas, schemas_metadata = get_schemas()
+def discover(config):
+    schemas, schemas_metadata = get_schemas(config=config)
     streams = []
 
     for schema_name, schema in schemas.items():
