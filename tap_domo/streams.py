@@ -4,54 +4,57 @@ LOGGER = singer.get_logger()
 
 
 class Stream:
-    tap_stream_id = None
-    key_properties = []
-    replication_method = ""
-    valid_replication_keys = []
-    replication_key = "last_updated_at"
-    object_type = ""
-    selected = True
-
-    def __init__(self, client, state):
+    def __init__(self, data_spec, client, state=None):
         self.client = client
         self.state = state
+        self.tap_stream_id = data_spec["tap_stream_id"]
+        self.object_type = data_spec["object_type"]
+        self.data_set = data_spec["data_set"]
+        self.replication_method = data_spec["replication_method"]
+        self.key_properties = []
+        self.replication_key = (
+            data_spec["replication_key"] if "replication_key" in data_spec else ""
+        )
+        self.table_name = data_spec["table_name"]
+        self.start_key = data_spec["start_key"] if "start_key" in data_spec else ""
 
-    def sync(self, *args, **kwargs):
-        raise NotImplementedError("Sync of child class not implemented")
+    def records_sync(self, limit_rate: int):
+        limit = limit_rate
+        offset = 0
+        record_count = limit
+        batch = 1
 
+        bookmark = singer.get_bookmark(
+            self.state, self.tap_stream_id, self.replication_key, self.start_key
+        )
 
-class CatalogStream(Stream):
-    replication_method = "INCREMENTAL"
+        while record_count >= limit:
+            # LOGGER.info(f'Starting batch: {batch}')
+            record_count = 0
+            response = self.client.records_query(
+                self.data_set,
+                self.table_name,
+                limit,
+                offset,
+                self.replication_key,
+                bookmark,
+            )
+            for record in response:
+                for key in record:
+                    if record[key] == "":
+                        record[key] = None
+                record.pop("index")
+                record_count += 1
+                yield record
 
-
-class FullTableStream(Stream):
-    replication_method = "FULL_TABLE"
-
-
-class ENDPOINT1Info(FullTableStream):
-    tap_stream_id = "ENDPOINT1_info"
-    key_properties = ["ENDPOINT1_id"]
-    object_type = "ENDPOINT1_INFO"
-
-    def sync(self, CLIENT_ARUGMENTS):
-        ## This is where to setup iteration over each end point
-        response = self.client.fetch_ENDPOINT1s(ENDPOINT1_PARAMETERS)
-        ENDPOINT1s = response.get("data", {}).get("ENDPOINT1_list", [])
-        for ENDPOINT1 in ENDPOINT1s:
-            yield ENDPOINT1
-
-
-class ENDPOINT2Info(FullTableStream):
-    tap_stream_id = "ENDPOINT2_info"
-    key_properties = ["ENDPOINT2_id"]
-    object_type = "ENDPOINT2_INFO"
-
-    def sync(self, CLIENT_ARUGMENTS):
-        ## This is where to setup iteration over each end point
-        response = self.client.fetch_ENDPOINT2s(ENDPOINT2_PARAMETERS)
-        ENDPOINT2s = response.get("data", [])
-        for ENDPOINT2 in ENDPOINT2s:
-            yield ENDPOINT2
-
-
-STREAMS = {"ENDPOINT1s": ENDPOINT1Info, "ENDPOINT2s": ENDPOINT2Info}
+            batch += 1
+            if self.replication_key != "":
+                singer.write_bookmark(
+                    self.state,
+                    self.tap_stream_id,
+                    self.replication_key,
+                    record[self.replication_key],
+                )
+                singer.write_state(self.state)
+                
+            offset += limit
