@@ -105,3 +105,6 @@ rsa-key
 tags
 singer-check-tap-data
 state.json
+catalog.json
+*/cassettes
+test.json
