@@ -66,13 +66,17 @@ def sync(config, state, catalog):
             info, rps = metrics(stream_start, stream_stop, record_count)
             stream_rps.append(rps)
             LOGGER.info(f"{info}")
+            singer.write_bookmark(state, tap_stream_id, "metrics", info)
 
             singer.write_state(state)
 
     state = singer.set_currently_syncing(state, None)
+    overall_rps = overall_metrics(total_records, stream_rps)
     LOGGER.info(
-        f"Total Records: {sum(total_records)} / Overall RPS: {overall_metrics(total_records, stream_rps):0.6}"
+        f"Total Records: {sum(total_records)} / Overall RPS: {overall_rps:0.6}"
     )
+    singer.write_bookmark(state, "Overall", "metrics",
+                          f"Records: {sum(total_records)} / RPS: {overall_rps:0.6}")
     singer.write_state(state)
 
 
