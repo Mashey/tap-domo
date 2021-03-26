@@ -4,7 +4,13 @@ import json
 
 class DOMOClient:
     def __init__(self, client_id: str, client_secret: str):
+        self.client_id = client_id
+        self.client_secret = client_secret
         self.domo = Domo(client_id, client_secret)
+
+    def reconnect(self):
+        self.domo = Domo(self.client_id, self.client_secret)
+        return
 
     def records_query(
         self,
