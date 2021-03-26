@@ -1,4 +1,5 @@
 import singer
+import sys
 
 LOGGER = singer.get_logger()
 
@@ -29,32 +30,44 @@ class Stream:
         )
 
         while record_count >= limit:
-            # LOGGER.info(f'Starting batch: {batch}')
-            record_count = 0
-            response = self.client.records_query(
-                self.data_set,
-                self.table_name,
-                limit,
-                offset,
-                self.replication_key,
-                bookmark,
-            )
-            for record in response:
-                for key in record:
-                    if record[key] == "":
-                        record[key] = None
-                record.pop("index")
-                record_count += 1
-                yield record
-
-            batch += 1
-            if self.replication_key != "":
-                singer.write_bookmark(
-                    self.state,
-                    self.tap_stream_id,
+            try:
+                LOGGER.info(f'Starting batch: {batch}')
+                record_count = 0
+                response = self.client.records_query(
+                    self.data_set,
+                    self.table_name,
+                    limit,
+                    offset,
                     self.replication_key,
-                    record[self.replication_key],
+                    bookmark,
                 )
-                singer.write_state(self.state)
-                
-            offset += limit
+                for record in response:
+                    record.pop("index")
+                    for key in record:
+                        if record[key] == "":
+                            record[key] = None
+                    record_count += 1
+                    yield record
+
+                batch += 1
+                if self.replication_key != "":
+                    singer.write_bookmark(
+                        self.state,
+                        self.tap_stream_id,
+                        self.replication_key,
+                        record[self.replication_key],
+                    )
+                    singer.write_state(self.state)
+                    
+                offset += limit
+
+            except Exception as e:
+                if 'Error creating query' in e.args[0]:
+                    LOGGER.warning(f'Error occured: {e.args[0]}')
+                    LOGGER.warning(f'Restarting last batch.')
+                    self.client.reconnect()
+                    record_count = limit
+                    next
+                else:
+                    LOGGER.critical(f'Fatal error: {e}')
+                    sys.exit(1)
