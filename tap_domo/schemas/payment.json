@@ -24,7 +24,7 @@
       "type": ["string", "null"]
     },
     "paymentfee": {
-      "type": ["number", "null"]
+      "type": ["string", "null"]
     },
     "ticketid": {
       "type": ["string", "null"]
