@@ -1,0 +1,420 @@
+{
+  "type": ["null", "object"],
+  "additionalProperties": false,
+  "properties": {
+    "verification_pending_min": {
+      "type": ["string", "null"]
+    },
+    "verification_pending_max": {
+      "type": ["string", "null"]
+    },
+    "awaiting_processing_min": {
+      "type": ["string", "null"]
+    },
+    "awaiting_processing_max": {
+      "type": ["string", "null"]
+    },
+    "in_process_min": {
+      "type": ["string", "null"]
+    },
+    "in_process_max": {
+      "type": ["string", "null"]
+    },
+    "packed_ready_min": {
+      "type": ["string", "null"]
+    },
+    "packed_ready_max": {
+      "type": ["string", "null"]
+    },
+    "out_for_delivery_min": {
+      "type": ["string", "null"]
+    },
+    "out_for_delivery_max": {
+      "type": ["string", "null"]
+    },
+    "channel": {
+      "type": ["string", "null"]
+    },
+    "payment_date": {
+      "type": ["string", "null"]
+    },
+    "pre_paid": {
+      "type": ["string", "null"]
+    },
+    "masked_ticketlineid": {
+      "type": ["string", "null"]
+    },
+    "masked_ticketid": {
+      "type": ["string", "null"]
+    },
+    "masked_ticketalphaid": {
+      "type": ["string", "null"]
+    },
+    "masked_storeid": {
+      "type": ["string", "null"]
+    },
+    "masked_customer_uuid": {
+      "type": ["string", "null"]
+    },
+    "retail_brand": {
+      "type": ["string", "null"]
+    },
+    "ticketid": {
+      "type": ["string", "null"]
+    },
+    "products_remaining": {
+      "type": ["number", "null"]
+    },
+    "register": {
+      "type": ["string", "null"]
+    },
+    "customer_type": {
+      "type": ["string", "null"]
+    },
+    "type": {
+      "type": ["string", "null"]
+    },
+    "customer_state": {
+      "type": ["string", "null"]
+    },
+    "customer_city": {
+      "type": ["string", "null"]
+    },
+    "zip_code": {
+      "type": ["string", "null"]
+    },
+    "age": {
+      "type": ["string", "null"]
+    },
+    "age_group": {
+      "type": ["string", "null"]
+    },
+    "cashier": {
+      "type": ["string", "null"]
+    },
+    "approver": {
+      "type": ["string", "null"]
+    },
+    "producttype": {
+      "type": ["string", "null"]
+    },
+    "productsubtype": {
+      "type": ["string", "null"]
+    },
+    "productattributes": {
+      "type": ["string", "null"]
+    },
+    "tier": {
+      "type": ["string", "null"]
+    },
+    "weight": {
+      "type": ["string", "null"]
+    },
+    "unitofmeasure": {
+      "type": ["string", "null"]
+    },
+    "priceunit": {
+      "type": ["number", "null"]
+    },
+    "qty": {
+      "type": ["number", "null"]
+    },
+    "grosssales": {
+      "type": ["number", "null"]
+    },
+    "discounts": {
+      "type": ["number", "null"]
+    },
+    "returns": {
+      "type": ["number", "null"]
+    },
+    "netsales": {
+      "type": ["number", "null"]
+    },
+    "taxes": {
+      "type": ["number", "null"]
+    },
+    "grossreceipts": {
+      "type": ["number", "null"]
+    },
+    "cost": {
+      "type": ["number", "null"]
+    },
+    "cost_without_excise": {
+      "type": ["number", "null"]
+    },
+    "grossincome": {
+      "type": ["number", "null"]
+    },
+    "avgproductmargin": {
+      "type": ["number", "null"]
+    },
+    "invoiceid": {
+      "type": ["integer", "null"]
+    },
+    "ticketlineid": {
+      "type": ["string", "null"]
+    },
+    "ticketalphaid": {
+      "type": ["string", "null"]
+    },
+    "dateclosed": {
+      "type": ["string", "null"]
+    },
+    "date_time_closed": {
+      "type": ["string", "null"]
+    },
+    "date_time_opened": {
+      "type": ["string", "null"]
+    },
+    "sku": {
+      "type": ["string", "null"]
+    },
+    "customer_uuid": {
+      "type": ["string", "null"]
+    },
+    "customer_signup_date": {
+      "type": ["string", "null"]
+    },
+    "reward_balance": {
+      "type": ["integer", "null"]
+    },
+    "inventory_location": {
+      "type": ["string", "null"]
+    },
+    "ticket_updated_date": {
+      "type": ["string", "null"]
+    },
+    "line_updated_date": {
+      "type": ["string", "null"]
+    },
+    "last_visit": {
+      "type": ["string", "null"]
+    },
+    "salestaxamount": {
+      "type": ["number", "null"]
+    },
+    "is_arms_length": {
+      "type": ["integer", "null"]
+    },
+    "is_cannabis": {
+      "type": ["integer", "null"]
+    },
+    "ticket_type": {
+      "type": ["string", "null"]
+    },
+    "statetrackingid": {
+      "type": ["string", "null"]
+    },
+    "customer_country": {
+      "type": ["string", "null"]
+    },
+    "customer_groups": {
+      "type": ["string", "null"]
+    },
+    "avgproductmarginpreexcise": {
+      "type": ["number", "null"]
+    },
+    "product_id": {
+      "type": ["string", "null"]
+    },
+    "inventory_date": {
+      "type": ["string", "null"]
+    },
+    "customer_mmid_expiration": {
+      "type": ["string", "null"]
+    },
+    "ticket_notes": {
+      "type": ["string", "null"]
+    },
+    "gender": {
+      "type": ["string", "null"]
+    },
+    "open_date": {
+      "type": ["string", "null"]
+    },
+    "tz_brand_id": {
+      "type": ["integer", "null"]
+    },
+    "tz_product_id": {
+      "type": ["integer", "null"]
+    },
+    "tz_productname": {
+      "type": ["string", "null"]
+    },
+    "tz_brandname": {
+      "type": ["string", "null"]
+    },
+    "storeid": {
+      "type": ["integer", "null"]
+    },
+    "customer_source": {
+      "type": ["string", "null"]
+    },
+    "distributor": {
+      "type": ["string", "null"]
+    },
+    "first_visit": {
+      "type": ["integer", "null"]
+    },
+    "repeat_purch": {
+      "type": ["integer", "null"]
+    },
+    "ticket_status": {
+      "type": ["string", "null"]
+    },
+    "custom": {
+      "type": ["string", "null"]
+    },
+    "customname": {
+      "type": ["string", "null"]
+    },
+    "customtaxamount": {
+      "type": ["number", "null"]
+    },
+    "dynamic": {
+      "type": ["string", "null"]
+    },
+    "dynamictaxname": {
+      "type": ["string", "null"]
+    },
+    "dynamicdtaxamount": {
+      "type": ["string", "null"]
+    },
+    "excise": {
+      "type": ["string", "null"]
+    },
+    "excisetaxname": {
+      "type": ["string", "null"]
+    },
+    "excisetaxamount": {
+      "type": ["number", "null"]
+    },
+    "sales": {
+      "type": ["string", "null"]
+    },
+    "salestaxname": {
+      "type": ["string", "null"]
+    },
+    "inventory_sku": {
+      "type": ["string", "null"]
+    },
+    "harvest_date": {
+      "type": ["string", "null"]
+    },
+    "external_id": {
+      "type": ["string", "null"]
+    },
+    "total_mg_thc": {
+      "type": ["string", "null"]
+    },
+    "total_mg_cbd": {
+      "type": ["string", "null"]
+    },
+    "extraction_method": {
+      "type": ["string", "null"]
+    },
+    "tz_customer_id": {
+      "type": ["string", "null"]
+    },
+    "thc_perc": {
+      "type": ["number", "null"]
+    },
+    "cbd_perc": {
+      "type": ["number", "null"]
+    },
+    "package_size": {
+      "type": ["string", "null"]
+    },
+    "productbrand": {
+      "type": ["string", "null"]
+    },
+    "anonymized_productbrand": {
+      "type": ["string", "null"]
+    },
+    "productname": {
+      "type": ["string", "null"]
+    },
+    "classification": {
+      "type": ["string", "null"]
+    },
+    "size": {
+      "type": ["string", "null"]
+    },
+    "thc_ratio": {
+      "type": ["string", "null"]
+    },
+    "repeat_purch_sku": {
+      "type": ["integer", "null"]
+    },
+    "verification_pending_employee": {
+      "type": ["string", "null"]
+    },
+    "awaiting_processing_employee": {
+      "type": ["string", "null"]
+    },
+    "in_process_employee": {
+      "type": ["string", "null"]
+    },
+    "packed_ready_employee": {
+      "type": ["string", "null"]
+    },
+    "out_for_delivery_employee": {
+      "type": ["string", "null"]
+    },
+    "completed_employee": {
+      "type": ["string", "null"]
+    },
+    "report_last_updated": {
+      "type": ["string", "null"]
+    },
+    "zip": {
+      "type": ["integer", "null"]
+    },
+    "lat": {
+      "type": ["number", "null"]
+    },
+    "lng": {
+      "type": ["number", "null"]
+    },
+    "income_household_median": {
+      "type": ["number", "null"]
+    },
+    "city": {
+      "type": ["string", "null"]
+    },
+    "county_name": {
+      "type": ["string", "null"]
+    },
+    "state_name": {
+      "type": ["string", "null"]
+    },
+    "county_fips": {
+      "type": ["number", "null"]
+    },
+    "region": {
+      "type": ["string", "null"]
+    },
+    "store_state": {
+      "type": ["string", "null"]
+    },
+    "year": {
+      "type": ["integer", "null"]
+    },
+    "month": {
+      "type": ["integer", "null"]
+    },
+    "datalake_date": {
+      "type": ["string", "null"]
+    },
+    "week_year": {
+      "type": ["string", "null"]
+    },
+    "_BATCH_ID_": {
+      "type": ["number", "null"]
+    },
+    "_BATCH_LAST_RUN_": {
+      "type": ["string", "null"]
+    }
+  }
+}

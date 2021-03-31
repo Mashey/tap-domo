@@ -1,0 +1,162 @@
+{
+  "type": ["null", "object"],
+  "additionalProperties": false,
+  "properties": {
+    "customer_uuid": {
+      "type": ["string", "null"]
+    },
+    "customer_signup_date": {
+      "type": ["string", "null"]
+    },
+    "last_updated_at": {
+      "type": ["string", "null"]
+    },
+    "last_visit": {
+      "type": ["string", "null"]
+    },
+    "signup_flag": {
+      "type": ["integer", "null"]
+    },
+    "gender": {
+      "type": ["string", "null"]
+    },
+    "age_group": {
+      "type": ["string", "null"]
+    },
+    "age": {
+      "type": ["string", "null"]
+    },
+    "reward_balance": {
+      "type": ["integer", "null"]
+    },
+    "customer_source": {
+      "type": ["string", "null"]
+    },
+    "groupnames": {
+      "type": ["string", "null"]
+    },
+    "visits": {
+      "type": ["number", "null"]
+    },
+    "notes": {
+      "type": ["string", "null"]
+    },
+    "opted_in": {
+      "type": ["string", "null"]
+    },
+    "patient_type": {
+      "type": ["string", "null"]
+    },
+    "customer_status": {
+      "type": ["string", "null"]
+    },
+    "violations": {
+      "type": ["string", "null"]
+    },
+    "city": {
+      "type": ["string", "null"]
+    },
+    "state": {
+      "type": ["string", "null"]
+    },
+    "zipcode": {
+      "type": ["string", "null"]
+    },
+    "longitude": {
+      "type": ["number", "null"]
+    },
+    "latitude": {
+      "type": ["number", "null"]
+    },
+    "permit_expiration_date": {
+      "type": ["string", "null"]
+    },
+    "tz_customer_id": {
+      "type": ["string", "null"]
+    },
+    "storeid": {
+      "type": ["integer", "null"]
+    },
+    "datalake_date": {
+      "type": ["string", "null"]
+    },
+    "lifetime_spend": {
+      "type": ["number", "null"]
+    },
+    "purchases": {
+      "type": ["number", "null"]
+    },
+    "flower": {
+      "type": ["number", "null"]
+    },
+    "beverage": {
+      "type": ["number", "null"]
+    },
+    "cartridge": {
+      "type": ["number", "null"]
+    },
+    "cbd": {
+      "type": ["number", "null"]
+    },
+    "edible": {
+      "type": ["number", "null"]
+    },
+    "extract": {
+      "type": ["number", "null"]
+    },
+    "merch": {
+      "type": ["number", "null"]
+    },
+    "misc": {
+      "type": ["number", "null"]
+    },
+    "plant": {
+      "type": ["number", "null"]
+    },
+    "pill": {
+      "type": ["number", "null"]
+    },
+    "preroll": {
+      "type": ["number", "null"]
+    },
+    "prepack": {
+      "type": ["number", "null"]
+    },
+    "tincture": {
+      "type": ["number", "null"]
+    },
+    "topical": {
+      "type": ["number", "null"]
+    },
+    "avg_day_between_visits": {
+      "type": ["number", "null"]
+    },
+    "avg_visit_time_seconds": {
+      "type": ["number", "null"]
+    },
+    "avg_checkout_time_seconds": {
+      "type": ["number", "null"]
+    },
+    "visit_without_purchase": {
+      "type": ["number", "null"]
+    },
+    "first_visit_mix": {
+      "type": ["string", "null"]
+    },
+    "second_visit_mix": {
+      "type": ["string", "null"]
+    },
+    "third_visit_mix": {
+      "type": ["string", "null"]
+    },
+    "most_freq_mix": {
+      "type": ["string", "null"]
+    },
+    "_BATCH_ID_": {
+      "type": ["number", "null"]
+    },
+    "_BATCH_LAST_RUN_": {
+      "type": ["string", "null"]
+    }
+  }
+}

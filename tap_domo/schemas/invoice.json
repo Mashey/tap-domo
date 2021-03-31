@@ -1,0 +1,129 @@
+{
+  "type": ["null", "object"],
+  "additionalProperties": false,
+  "properties": {
+    "payment_date": {
+      "type": ["string", "null"]
+    },
+    "payment_user": {
+      "type": ["string", "null"]
+    },
+    "payment_amount": {
+      "type": ["string", "null"]
+    },
+    "payment_notes": {
+      "type": ["string", "null"]
+    },
+    "transaction_id": {
+      "type": ["string", "null"]
+    },
+    "invoice_id": {
+      "type": ["string", "null"]
+    },
+    "product_id": {
+      "type": ["string", "null"]
+    },
+    "cost_id": {
+      "type": ["string", "null"]
+    },
+    "invoice_number": {
+      "type": ["integer", "null"]
+    },
+    "created_date": {
+      "type": ["string", "null"]
+    },
+    "due_date": {
+      "type": ["string", "null"]
+    },
+    "accepted_date": {
+      "type": ["string", "null"]
+    },
+    "term_id": {
+      "type": ["string", "null"]
+    },
+    "distributor_id": {
+      "type": ["string", "null"]
+    },
+    "inventory_location": {
+      "type": ["string", "null"]
+    },
+    "external_invoice_id": {
+      "type": ["string", "null"]
+    },
+    "invoice_cost_id": {
+      "type": ["string", "null"]
+    },
+    "productname": {
+      "type": ["string", "null"]
+    },
+    "producttype": {
+      "type": ["string", "null"]
+    },
+    "productsubtype": {
+      "type": ["string", "null"]
+    },
+    "unitofmeasure": {
+      "type": ["string", "null"]
+    },
+    "discount": {
+      "type": ["number", "null"]
+    },
+    "base_cost": {
+      "type": ["number", "null"]
+    },
+    "qty": {
+      "type": ["number", "null"]
+    },
+    "total_cost": {
+      "type": ["number", "null"]
+    },
+    "payment_transaction_type": {
+      "type": ["string", "null"]
+    },
+    "fees_from_lines": {
+      "type": ["number", "null"]
+    },
+    "unspread_fees": {
+      "type": ["number", "null"]
+    },
+    "unspread_eligible_fees": {
+      "type": ["number", "null"]
+    },
+    "terms": {
+      "type": ["string", "null"]
+    },
+    "storeid": {
+      "type": ["integer", "null"]
+    },
+    "total_final_cost": {
+      "type": ["number", "null"]
+    },
+    "productbrand": {
+      "type": ["string", "null"]
+    },
+    "vendorname": {
+      "type": ["string", "null"]
+    },
+    "excise_tax": {
+      "type": ["number", "null"]
+    },
+    "total_cost_final": {
+      "type": ["number", "null"]
+    },
+    "datalake_date": {
+      "type": ["string", "null"]
+    },
+    "merged_product_id": {
+      "type": ["string", "null"]
+    },
+    "payment_status": {
+      "type": ["string", "null"]
+    },
+    "_BATCH_ID_": {
+      "type": ["number", "null"]
+    },
+    "_BATCH_LAST_RUN_": {
+      "type": ["string", "null"]
+    }
+  }
+}

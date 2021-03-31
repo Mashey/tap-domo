@@ -1,0 +1,141 @@
+{
+  "type": ["null", "object"],
+  "additionalProperties": false,
+  "properties": {
+    "payment_date": {
+      "type": ["string", "null"]
+    },
+    "paymentid": {
+      "type": ["string", "null"]
+    },
+    "paymentname": {
+      "type": ["string", "null"]
+    },
+    "originalamount": {
+      "type": ["number", "null"]
+    },
+    "changeamount": {
+      "type": ["number", "null"]
+    },
+    "grossreceiptspaid": {
+      "type": ["number", "null"]
+    },
+    "percent_of_ticket": {
+      "type": ["string", "null"]
+    },
+    "paymentfee": {
+      "type": ["number", "null"]
+    },
+    "ticketid": {
+      "type": ["string", "null"]
+    },
+    "ticketalphanum": {
+      "type": ["string", "null"]
+    },
+    "ticketstatus": {
+      "type": ["string", "null"]
+    },
+    "dateclosed": {
+      "type": ["string", "null"]
+    },
+    "timeclosed": {
+      "type": ["string", "null"]
+    },
+    "paymenttype": {
+      "type": ["string", "null"]
+    },
+    "customertype": {
+      "type": ["string", "null"]
+    },
+    "seconds_to_payment": {
+      "type": ["number", "null"]
+    },
+    "customergroups": {
+      "type": ["string", "null"]
+    },
+    "dateopen": {
+      "type": ["string", "null"]
+    },
+    "timeopened": {
+      "type": ["string", "null"]
+    },
+    "datelastmodified": {
+      "type": ["string", "null"]
+    },
+    "timelastmodified": {
+      "type": ["string", "null"]
+    },
+    "datepaymentprocessed": {
+      "type": ["string", "null"]
+    },
+    "timepaymentprocessed": {
+      "type": ["string", "null"]
+    },
+    "authcode": {
+      "type": ["string", "null"]
+    },
+    "refcode": {
+      "type": ["string", "null"]
+    },
+    "ticketlineid": {
+      "type": ["string", "null"]
+    },
+    "metrcreceipt": {
+      "type": ["string", "null"]
+    },
+    "activity": {
+      "type": ["string", "null"]
+    },
+    "cashier": {
+      "type": ["string", "null"]
+    },
+    "approver": {
+      "type": ["string", "null"]
+    },
+    "documentid": {
+      "type": ["string", "null"]
+    },
+    "age": {
+      "type": ["integer", "null"]
+    },
+    "city": {
+      "type": ["string", "null"]
+    },
+    "zip": {
+      "type": ["string", "null"]
+    },
+    "gender": {
+      "type": ["string", "null"]
+    },
+    "report_last_updated": {
+      "type": ["string", "null"]
+    },
+    "year": {
+      "type": ["integer", "null"]
+    },
+    "month": {
+      "type": ["integer", "null"]
+    },
+    "customer_uuid": {
+      "type": ["string", "null"]
+    },
+    "storeid": {
+      "type": ["integer", "null"]
+    },
+    "datalake_date": {
+      "type": ["string", "null"]
+    },
+    "masked_cashier": {
+      "type": ["string", "null"]
+    },
+    "week_year": {
+      "type": ["string", "null"]
+    },
+    "_BATCH_ID_": {
+      "type": ["number", "null"]
+    },
+    "_BATCH_LAST_RUN_": {
+      "type": ["string", "null"]
+    }
+  }
+}
