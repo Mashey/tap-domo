@@ -1,0 +1,156 @@
+{
+  "type": ["null", "object"],
+  "additionalProperties": false,
+  "properties": {
+    "unit_of_measure": {
+      "type": ["string", "null"]
+    },
+    "type": {
+      "type": ["string", "null"]
+    },
+    "storeid": {
+      "type": ["integer", "null"]
+    },
+    "status": {
+      "type": ["string", "null"]
+    },
+    "start_date": {
+      "type": ["string", "null"]
+    },
+    "source": {
+      "type": ["string", "null"]
+    },
+    "sold_units": {
+      "type": ["number", "null"]
+    },
+    "returned_units": {
+      "type": ["number", "null"]
+    },
+    "returned_from_pos": {
+      "type": ["number", "null"]
+    },
+    "reserved_units": {
+      "type": ["number", "null"]
+    },
+    "productname": {
+      "type": ["string", "null"]
+    },
+    "productbrand": {
+      "type": ["string", "null"]
+    },
+    "product_id": {
+      "type": ["string", "null"]
+    },
+    "packed_and_ready_units": {
+      "type": ["number", "null"]
+    },
+    "package_id": {
+      "type": ["string", "null"]
+    },
+    "original_start_date": {
+      "type": ["string", "null"]
+    },
+    "location_type": {
+      "type": ["string", "null"]
+    },
+    "location_name": {
+      "type": ["string", "null"]
+    },
+    "location_id": {
+      "type": ["string", "null"]
+    },
+    "last_user_id": {
+      "type": ["string", "null"]
+    },
+    "last_reconciliation_id": {
+      "type": ["string", "null"]
+    },
+    "last_location_id": {
+      "type": ["string", "null"]
+    },
+    "last_inventory_id": {
+      "type": ["string", "null"]
+    },
+    "last_action": {
+      "type": ["string", "null"]
+    },
+    "is_sellable": {
+      "type": ["string", "null"]
+    },
+    "invoice_line_id": {
+      "type": ["string", "null"]
+    },
+    "invoice_id": {
+      "type": ["string", "null"]
+    },
+    "inventory_type": {
+      "type": ["string", "null"]
+    },
+    "id": {
+      "type": ["string", "null"]
+    },
+    "expiration_date": {
+      "type": ["string", "null"]
+    },
+    "excise_tax_per_unit": {
+      "type": ["number", "null"]
+    },
+    "distributor_id": {
+      "type": ["string", "null"]
+    },
+    "destroyed_units": {
+      "type": ["number", "null"]
+    },
+    "decision_pending_units": {
+      "type": ["number", "null"]
+    },
+    "cost_per_unit": {
+      "type": ["number", "null"]
+    },
+    "converted_units": {
+      "type": ["number", "null"]
+    },
+    "change_quantity": {
+      "type": ["number", "null"]
+    },
+    "batch_id": {
+      "type": ["string", "null"]
+    },
+    "available_units": {
+      "type": ["number", "null"]
+    },
+    "adjusted_units": {
+      "type": ["number", "null"]
+    },
+    "producttype": {
+      "type": ["string", "null"]
+    },
+    "state_tracking_id": {
+      "type": ["string", "null"]
+    },
+    "datalake_date": {
+      "type": ["string", "null"]
+    },
+    "merged_product_id": {
+      "type": ["string", "null"]
+    },
+    "accepted_date": {
+      "type": ["string", "null"]
+    },
+    "product_external_id": {
+      "type": ["string", "null"]
+    },
+    "product_sku": {
+      "type": ["string", "null"]
+    },
+    "harvest_date": {
+      "type": ["string", "null"]
+    },
+    "_BATCH_ID_": {
+      "type": ["number", "null"]
+    },
+    "_BATCH_LAST_RUN_": {
+      "type": ["string", "null"]
+    }
+  }
+}
