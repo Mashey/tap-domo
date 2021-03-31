@@ -9,6 +9,9 @@ from tap_domo.client import DOMOClient
 LOGGER = get_logger()
 
 
+def get_abs_path(path):
+    return os.path.join(os.path.dirname(os.path.realpath(__file__)), path)
+
 def get_schemas(config):
 
     client = DOMOClient(
@@ -21,10 +24,13 @@ def get_schemas(config):
     for table_name, table_specs in config["data_specs"].items():
         LOGGER.info(f"Building Schema for {table_specs['object_type']}")
         stream_name = table_specs["tap_stream_id"]
-        schema = client.get_schema(
-            data_set=table_specs["data_set"], table_name=table_specs["table_name"]
-        )
-        schema["properties"].pop("index")
+        schema_path = get_abs_path('schemas/{}.json'.format(stream_name))
+        with open(schema_path) as file:
+            schema = json.load(file)
+        # schema = client.get_schema(
+        #     data_set=table_specs["data_set"], table_name=table_specs["table_name"]
+        # )
+        # schema["properties"].pop("index")
 
         meta = metadata.get_standard_metadata(
             schema=schema,
