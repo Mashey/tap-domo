@@ -2,7 +2,6 @@ import singer
 from singer import Transformer, metadata
 import time
 
-# The client name needs to be filled in here
 from tap_domo.client import DOMOClient
 from tap_domo.streams import Stream
 
@@ -11,7 +10,6 @@ LOGGER = singer.get_logger()
 
 
 def sync(config, state, catalog):
-    # Any client required PARAMETERS to hit the endpoint
     client = DOMOClient(
         client_id=config["client_id"], client_secret=config["client_secret"]
     )
@@ -55,10 +53,13 @@ def sync(config, state, catalog):
                 record_count += 1
 
             # If there is a Bookmark or state based key to store
-            if replication_key != "":
-                singer.write_bookmark(
-                    state, tap_stream_id, replication_key, record[replication_key]
-                )
+            try:
+                if replication_key != "":
+                    singer.write_bookmark(
+                        state, tap_stream_id, replication_key, record[replication_key]
+                    )
+            except:
+                LOGGER.info(f'No records to update bookmark')
 
             stream_stop = time.perf_counter()
 
