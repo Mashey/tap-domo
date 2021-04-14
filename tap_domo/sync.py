@@ -58,7 +58,6 @@ def sync(config, state, catalog):
                     singer.write_bookmark(
                         state, tap_stream_id, replication_key, record[replication_key]
                     )
-                    breakpoint()
             except:
                 LOGGER.info(f'No records to update bookmark')
 
