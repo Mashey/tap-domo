@@ -52,13 +52,13 @@ def sync(config, state, catalog):
                 )
                 record_count += 1
 
+                singer.write_bookmark(
+                    state, tap_stream_id, replication_key, record[replication_key]
+                )
+
             # If there is a Bookmark or state based key to store
-            try:
-                if replication_key != "":
-                    singer.write_bookmark(
-                        state, tap_stream_id, replication_key, record[replication_key]
-                    )
-            except:
+            
+            if record_count == 0:
                 LOGGER.info(f'No records to update bookmark')
 
             stream_stop = time.perf_counter()

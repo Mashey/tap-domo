@@ -41,24 +41,17 @@ class Stream:
                     self.replication_key,
                     bookmark,
                 )
-                for record in response:
-                    record.pop("index")
-                    for key in record:
-                        if record[key] == "":
-                            record[key] = None
-                    record_count += 1
-                    yield record
+
+                if len(response) > 0:
+                    for record in response:
+                        record.pop("index")
+                        for key in record:
+                            if record[key] == "":
+                                record[key] = None
+                        record_count += 1
+                        yield record
 
                 batch += 1
-                if self.replication_key != "":
-                    singer.write_bookmark(
-                        self.state,
-                        self.tap_stream_id,
-                        self.replication_key,
-                        record[self.replication_key],
-                    )
-                    singer.write_state(self.state)
-                    
                 offset += limit
 
             except Exception as e:
