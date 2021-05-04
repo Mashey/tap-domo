@@ -143,6 +143,9 @@
     "product_sku": {
       "type": ["string", "null"]
     },
+    "priceunit": {
+      "type": ["string", "null"]
+    },
     "harvest_date": {
       "type": ["string", "null"]
     },
