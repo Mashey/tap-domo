@@ -1,0 +1,26 @@
+version: 2.1
+jobs:
+  build:
+    executor: python/default
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - deps-{{ checksum "poetry.lock" }}
+      - python/install-packages:
+          pkg-manager: poetry
+      - save_cache:
+          key: deps-{{ checksum "poetry.lock" }}
+          paths:
+            - /home/circleci/.cache/pypoetry/virtualenvs
+      - run:
+          command: |
+            poetry run pytest --cov-report term-missing --cov=tap_ask_nicely tests/
+            poetry run coveralls
+          name: Run Tests and Upload Coverage
+orbs:
+  python: circleci/python@1.4.0
+workflows:
+  main:
+    jobs:
+      - build
