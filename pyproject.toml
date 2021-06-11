@@ -14,7 +14,6 @@ singer-python = "^5.9.1"
 pydomo = "^0.3.0"
 
 [tool.poetry.dev-dependencies]
-autopep8 = "^1.5.4"
 coverage = "^5.4"
 pylint = "^2.6.0"
 pytest = "^6.2.2"
