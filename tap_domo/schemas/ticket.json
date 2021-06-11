@@ -410,10 +410,7 @@
     "week_year": {
       "type": ["string", "null"]
     },
-    "_BATCH_ID_": {
-      "type": ["number", "null"]
-    },
-    "_BATCH_LAST_RUN_": {
+    "last_retrieved_timestamp": {
       "type": ["string", "null"]
     }
   }
