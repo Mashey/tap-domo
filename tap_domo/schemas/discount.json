@@ -1,0 +1,332 @@
+{
+    "type": [
+        "object",
+        "null"
+    ],
+    "properties": {
+        "index": {
+            "type": [
+                "integer",
+                "null"
+            ]
+        },
+        "tz_brandname": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "tz_brand_id": {
+            "type": [
+                "integer",
+                "null"
+            ]
+        },
+        "customer_uuid": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "discount_date": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "dateopen": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "timeopen": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "dateclosed": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "timeclose": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "datetimeclosed": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "datelastupdate": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "timelastupdate": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "ticketalphaid": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "ticketlineid": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "ticketid": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "gender": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "customer_city": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "customer_state": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "customer_country": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "cashier": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "cashierid": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "producttype": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "productsubtype": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "productname": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "priceperunit": {
+            "type": [
+                "number",
+                "null"
+            ]
+        },
+        "salestax": {
+            "type": [
+                "number",
+                "null"
+            ]
+        },
+        "discounttype": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "discountmethod": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "discountreason": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "discounts": {
+            "type": [
+                "number",
+                "null"
+            ]
+        },
+        "discountid": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "discountlogid": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "customertype": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "customergroup": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "weight": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "unitofmeasure": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "discounttitle": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "skus": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "receiving_license": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "customer_mmid_expiration": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "priceperunitafterdiscount": {
+            "type": [
+                "number",
+                "null"
+            ]
+        },
+        "priceperunitdifference": {
+            "type": [
+                "number",
+                "null"
+            ]
+        },
+        "quantity": {
+            "type": [
+                "number",
+                "null"
+            ]
+        },
+        "netsales": {
+            "type": [
+                "number",
+                "null"
+            ]
+        },
+        "storeid": {
+            "type": [
+                "integer",
+                "null"
+            ]
+        },
+        "distributor": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "size": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "productbrand": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "product_id": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "datalake_date": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "merged_product_id": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "master_product_id": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "masked_cashier": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "report_last_updated": {
+            "type": [
+                "string",
+                "null"
+            ]
+        }
+    }
+}
