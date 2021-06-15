@@ -22,7 +22,7 @@ class DOMOClient:
         bookmark: str = None,
     ) -> list:
         if replication_key:
-            sql = f"SELECT * FROM {table_name} WHERE {replication_key} > '{bookmark}' LIMIT {limit} OFFSET {offset}"
+            sql = f"SELECT * FROM {table_name} WHERE {replication_key} > '{bookmark}' ORDER BY {replication_key} LIMIT {limit} OFFSET {offset}"
         else:
             sql = f"SELECT * FROM {table_name} LIMIT {limit} OFFSET {offset}"
         return self.send_query(data_set=data_set, query_string=sql)
