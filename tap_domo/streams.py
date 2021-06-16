@@ -1,5 +1,6 @@
 import singer
 import sys
+from datetime import datetime, timedelta
 
 LOGGER = singer.get_logger()
 
@@ -64,3 +65,45 @@ class Stream:
                 else:
                     LOGGER.critical(f'Fatal error: {e}')
                     sys.exit(1)
+
+    def historical_records_sync(self):
+        date = self.start_key
+        batch = 1
+        rolling_timestamp = self.get_rolling_timestamp(date)
+
+        while rolling_timestamp < '2021-05-01':
+            try:
+                LOGGER.info(f"Starting batch: {batch}")
+                record_count = 0
+                response = self.client.historical_records_query(
+                    self.data_set,
+                    self.table_name,
+                    rolling_timestamp
+                )
+
+                if len(response) > 0:
+                    for record in response:
+                        record.pop("index")
+                        for key in record:
+                            if record[key] == "":
+                                record[key] = None
+                        record_count += 1
+                        yield record
+                batch += 1
+                rolling_timestamp = self.get_rolling_timestamp(rolling_timestamp)
+                LOGGER.info(rolling_timestamp)
+            except Exception as e:
+                if 'Error creating query' in e.args[0]:
+                    LOGGER.warning(f'Error occured: {e.args[0]}')
+                    LOGGER.warning(f'Restarting last batch.')
+                    self.client.reconnect()
+                    next
+                else:
+                    LOGGER.critical(f'Fatal error: {e}')
+                    sys.exit(1)
+
+    def get_rolling_timestamp(self, date: str) -> str:
+        orig_date = datetime.strptime(date, "%Y-%m-%d")
+        rolling_timestamp = (orig_date + timedelta(days=1)).strftime("%Y-%m-%d")
+
+        return rolling_timestamp

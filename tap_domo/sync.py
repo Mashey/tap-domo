@@ -41,22 +41,34 @@ def sync(config, state, catalog):
                 stream.replication_key,
             )
 
-            for record in stream_obj.records_sync(limit):
-                transformed_record = transformer.transform(
-                    record, stream_schema, stream_metadata
-                )
+            if "historical_sync" not in data_spec.keys():
+                for record in stream_obj.records_sync(limit):
+                    transformed_record = transformer.transform(
+                        record, stream_schema, stream_metadata
+                    )
 
-                singer.write_record(
-                    tap_stream_id,
-                    transformed_record,
-                )
-                record_count += 1
+                    singer.write_record(
+                        tap_stream_id,
+                        transformed_record,
+                    )
+                    record_count += 1
 
-                singer.write_bookmark(
-                    state, tap_stream_id, replication_key, record[replication_key]
-                )
+                    singer.write_bookmark(
+                        state, tap_stream_id, replication_key, record[replication_key]
+                    )
+            else:
+                for record in stream_obj.historical_records_sync():
+                    transformed_record = transformer.transform(
+                        record,
+                        stream_schema,
+                        stream_metadata
+                    )
 
-            # If there is a Bookmark or state based key to store
+                    singer.write_record(
+                        tap_stream_id,
+                        transformed_record
+                    )
+                    record_count += 1
             
             if record_count == 0:
                 LOGGER.info(f'No records to update bookmark')
