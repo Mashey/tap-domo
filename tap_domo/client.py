@@ -27,6 +27,16 @@ class DOMOClient:
             sql = f"SELECT * FROM {table_name} LIMIT {limit} OFFSET {offset}"
         return self.send_query(data_set=data_set, query_string=sql)
 
+    def historical_records_query(
+        self,
+        data_set: str,
+        table_name: str,
+        rolling_timestamp: str
+    ) -> list:
+        sql = f"SELECT * FROM {table_name} WHERE dateclosed = '{rolling_timestamp}'"
+
+        return self.send_query(data_set=data_set, query_string=sql)
+
     def send_query(self, data_set: str, query_string: str) -> dict:
         return json.loads(
             self.domo.ds_query(data_set, query_string).to_json(orient="table")
