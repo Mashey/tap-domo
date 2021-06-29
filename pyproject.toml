@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tap-domo"
-version = "1.1.0"
+version = "1.1.1"
 description = "A Singer Tap by Mashey"
 authors = ["Ryan Allen <rcallen89@gmail.com>"]
 packages = [
