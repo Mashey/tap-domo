@@ -21,7 +21,9 @@ class DOMOClient:
         replication_key: str = None,
         bookmark: str = None,
     ) -> list:
-        if replication_key:
+        if replication_key and table_name == 'inventory_upsert':
+            sql = f"SELECT * FROM {table_name} WHERE {replication_key} > '{bookmark}' ORDER BY {replication_key}, id LIMIT {limit} OFFSET {offset}"
+        elif replication_key:
             sql = f"SELECT * FROM {table_name} WHERE {replication_key} > '{bookmark}' ORDER BY {replication_key} LIMIT {limit} OFFSET {offset}"
         else:
             sql = f"SELECT * FROM {table_name} LIMIT {limit} OFFSET {offset}"
