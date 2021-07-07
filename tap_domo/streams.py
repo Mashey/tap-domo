@@ -71,7 +71,7 @@ class Stream:
         batch = 1
         rolling_timestamp = self.get_rolling_timestamp(date)
 
-        while rolling_timestamp < '2021-06-17':
+        while rolling_timestamp < '2021-07-06':
             try:
                 LOGGER.info(f"Starting batch: {batch}")
                 record_count = 0
