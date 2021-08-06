@@ -29,7 +29,10 @@ class Stream:
         bookmark = singer.get_bookmark(
             self.state, self.tap_stream_id, self.replication_key, self.start_key
         )
-
+        breakpoint()
+        if self.object_type == 'TICKET':
+            bookmark = self.get_overlap_timestamp(date=bookmark)
+        breakpoint()
         while record_count >= limit:
             try:
                 LOGGER.info(f'Starting batch: {batch}')
@@ -107,3 +110,9 @@ class Stream:
         rolling_timestamp = (orig_date + timedelta(days=1)).strftime("%Y-%m-%d")
 
         return rolling_timestamp
+
+    def get_overlap_timestamp(self, date: str) -> str:
+        orig_date = datetime.strptime(date, "%Y-%m-%dT%H:%M:%S")
+        overlap_timestamp = (orig_date - timedelta(days=1)).strftime("%Y-%m-%dT%H:%M:%S")
+
+        return overlap_timestamp
